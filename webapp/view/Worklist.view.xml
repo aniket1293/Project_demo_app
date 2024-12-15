@@ -1,10 +1,12 @@
 <mvc:View controllerName="com.sg.Project_demo_app.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable">
+	xmlns:semantic="sap.f.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mdc="sap.ui.mdc">
 	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false">
 		<semantic:titleHeading>
 			<Title id="wktitle" text="{i18n>worklistTitle}" level="H2"/>
 		</semantic:titleHeading>
 		<semantic:content>
+			
 			<Table id="wktable" width="auto" items="{ path: '/HeaderSet', sorter: { path: 'Belnr', descending: false } }"
 				noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
 				updateFinished=".onUpdateFinished">

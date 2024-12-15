@@ -1,0 +1,52 @@
+<mvc:View
+    xmlns:control="sap.gantt.control"
+    controllerName="com.sg.Project_demo_app.controller.Customer"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page
+        id="cupage"
+        showHeader="true"
+        title="Customer Details"
+    >
+        <content>
+            <VBox    id="cuvbox"    class="sapUiSmallMargin" >
+                <f:SimpleForm id="cusf"
+                    			editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="4"
+                                labelSpanL="3"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="4"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false"
+								title="Customer Number : {Kunnr}"
+                >
+                    <f:content>
+                        <Label id="culabel1" text="Name" />
+                        <Text id="nameText" text="{Name1}"/>
+                        <Label id="culand1l" text="Country/Region Key"/>
+                        <Text id="nameland1t" text="{Land1}" />                        
+                        <Label id="cucityl" text="City" />
+                        <Text id="nameCity" text="{Ort01}" />
+                        <Label id="cupost" text="Postal Code" />
+                        <Text id="namepost" text="{Pstlz}" />
+                        <Label id="culabel2" text="Street"/>
+                        <Text id="nameStreet" text="{Stras}" />
+                        <Label id="culabel4" text="Telefone" />
+                        <Text id="teleText" text="{Telf1}" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

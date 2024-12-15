@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel, History, formatter) {
 	"use strict";
 
-	return BaseController.extend("com.sg.Project_demo_app.controller.Object", {
+	return BaseController.extend("com.sg.Project_demo_app.controller.Customer", {
 
 		formatter: formatter,
 
@@ -27,8 +27,8 @@ sap.ui.define([
 					busy : true,
 					delay : 0
 				});
-
-			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+			debugger;
+			this.getRouter().getRoute("customer").attachPatternMatched(this._onObjectMatched, this);
 
 			// Store original busy indicator delay, so it can be restored later on
 			iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -57,7 +57,7 @@ sap.ui.define([
 			if (sPreviousHash !== undefined) {
 				history.go(-1);
 			} else {
-				this.getRouter().navTo("worklist", {}, true);
+				this.getRouter().navTo("object", {}, true);
 			}
 		},
 
@@ -72,14 +72,11 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched : function (oEvent) {
-			var bukrs =  oEvent.getParameter("arguments").bukrs;
-			var belnr =  oEvent.getParameter("arguments").belnr;
-			var gjahr =  oEvent.getParameter("arguments").gjahr;
+			debugger;
+			var kunnr =  oEvent.getParameter("arguments").kunnr;
 			this.getModel().metadataLoaded().then( function() {
-				var sObjectPath = this.getModel().createKey("HeaderSet", {
-					Bukrs :  bukrs,
-					Belnr :  belnr,
-					Gjahr :  gjahr
+				var sObjectPath = this.getModel().createKey("CustomerSet", {
+					Kunnr :  kunnr
 				});
 				this._bindView("/" + sObjectPath);
 			}.bind(this));
@@ -92,6 +89,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_bindView : function (sObjectPath) {
+			debugger;
 			var oViewModel = this.getModel("objectView"),
 				oDataModel = this.getModel();
 
@@ -137,18 +135,6 @@ sap.ui.define([
 			// oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
 			// oViewModel.setProperty("/shareSendEmailMessage",
 			// oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
-		},
-
-		onCust : function (oEvent) {
-			// The source is the list item that got pressed
-			this._showObject(oEvent.getSource());
-		},
-
-		_showObject : function (oItem) {
-			debugger;
-			this.getRouter().navTo("customer", {
-				kunnr: oItem.getBindingContext().getProperty("Kunnr")
-			});
 		}
 
 	});

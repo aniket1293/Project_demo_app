@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.sg.Project_demo_app.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+<mvc:View xmlns:control="sap.gantt.control" controllerName="com.sg.Project_demo_app.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic">
 	<semantic:SemanticPage id="obpage" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
 		busyIndicatorDelay="{objectView>/delay}">
@@ -65,9 +65,12 @@
 					<Column id="obKunnr">
 						<Text id="obKunnrt" text="{i18n>Kunnr}"/>
 					</Column>
-					<Column id="obLifnr">
+					<!-- <Column id="obLifnr">
 						<Text id="obLifnrt" text="{i18n>Lifnr}"/>
-					</Column>																				
+					</Column>	 -->
+					<Column id="obbutton">
+						<Text id="obbutton1" text="Click Button"/>
+					</Column>																									
 				</columns>
 				<items>
 					<ColumnListItem id="obColumnlt">
@@ -84,8 +87,9 @@
 							<Text id="obmwskzv" text="{Mwskz}"></Text>
 							<Text id="obdmbtrv" text="{Dmbtr}"></Text>
 							<Text id="obhkontv" text="{Hkont}"></Text>
-							<Text id="obkunnrv" text="{Kunnr}"></Text>
-							<Text id="oblifnrv" text="{Lifnr}"></Text>							
+							<Text id="obkunnrv" text="{Kunnr}" ></Text>
+							<!-- <Text id="oblifnrv" text="{Lifnr}"></Text>							 -->
+							<Button id="itembut" text="View Customer" press="onCust"></Button>
 						</cells>
 					</ColumnListItem>
 				</items>

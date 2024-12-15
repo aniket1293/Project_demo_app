@@ -101,7 +101,14 @@
                     "target": [
                         "object"
                     ]
-                }
+                },
+                {
+                    "pattern": "CustomerSet/{kunnr}",
+                    "name": "customer",
+                    "target": [
+                        "customer"
+                    ]
+                }                
             ],
             "targets": {
                 "worklist": {
@@ -123,6 +130,12 @@
                 "notFound": {
                     "viewName": "NotFound",
                     "viewId": "notFound"
+                },
+                "customer": {
+                    "viewName": "Customer",
+                    "viewId": "customer",
+                    "viewLevel": 2,
+                    "title": "Customer Details"
                 }
             }
         },
