@@ -1,0 +1,76 @@
+<mvc:View controllerName="com.sg.Project_demo_app.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable">
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false">
+		<semantic:titleHeading>
+			<Title id="wktitle" text="{i18n>worklistTitle}" level="H2"/>
+		</semantic:titleHeading>
+		<semantic:content>
+			<Table id="wktable" width="auto" items="{ path: '/HeaderSet', sorter: { path: 'Belnr', descending: false } }"
+				noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished">
+				<headerToolbar>
+					<OverflowToolbar id="wkoftb">
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}" level="H3"/>
+						<ToolbarSpacer id="wktbs"/>
+						<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search=".onSearch">
+							<layoutData>
+								<OverflowToolbarLayoutData id="wkoftbl" maxWidth="200px" priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="wkBukrs">
+						<Text id="wkBukrst" text="Bukrs"/>
+					</Column>
+					<Column id="wkBelnr">
+						<Text id="wkBelnrt" text="Belnr"/>
+					</Column>
+					<Column id="wkGjahr">
+						<Text id="wkGjahrt" text="Gjahr"/>
+					</Column>
+					<Column id="wkBlart">
+						<Text id="wkBlartt" text="Blart"/>
+					</Column>
+					<Column id="wkBldat">
+						<Text id="wkBldatt" text="Bldat"/>
+					</Column>
+					<Column id="wkBudat">
+						<Text id="wkBudatt" text="Budat"/>
+					</Column>
+					<Column id="wkCpudt">
+						<Text id="wkCpudtt" text="Cpudt"/>
+					</Column>
+					<Column id="wkCputm">
+						<Text id="wkCputmt" text="Cputm"/>
+					</Column>
+					<Column id="wkUsnam">
+						<Text id="wkUsnamt" text="Usnam"/>
+					</Column>
+					<Column id="wkXblnr">
+						<Text id="wkXblnrt" text="Xblnr"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem id="wkcolli" type="Navigation" press=".onPress">
+						<cells>
+							<Text id="wkbukrsv" text="{Bukrs}"></Text>
+							<Text id="wkbelnrv" text="{Belnr}"></Text>
+							<Text id="wkgjahrv" text="{Gjahr}"></Text>
+							<Text id="wkblartv" text="{Blart}"></Text>
+							<Text id="wkbldatv" text="{Bldat}"></Text>
+							<Text id="wkbudatv" text="{Budat}"></Text>
+							<Text id="wkcpudtv" text="{Cpudt}"></Text>
+							<Text id="wkcputmv" text="{Cputm}"></Text>
+							<Text id="wkusnamv" text="{Usnam}"></Text>
+							<Text id="wkxblnrv" text="{Xblnr}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+		<!-- <semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction> -->
+	</semantic:SemanticPage>
+</mvc:View>

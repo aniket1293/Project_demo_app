@@ -1,0 +1,21 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGW_BTP_TRIAL_AN_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Header" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document Number"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Fiscal Year"/><Property Name="Blart" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Document Type"/><Property Name="Bldat" Type="Edm.DateTime" Precision="7" sap:label="Document Date"/><Property Name="Budat" Type="Edm.DateTime" Precision="7" sap:label="Posting Date"/><Property Name="Cpudt" Type="Edm.DateTime" Precision="7" sap:label="Entered on"/><Property Name="Cputm" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Entered at"/><Property Name="Usnam" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User Name"/><Property Name="Xblnr" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Reference"/><NavigationProperty Name="Nav_HeaderItem" Relationship="ZGW_BTP_TRIAL_AN_SRV.AS_HeaderItem" FromRole="FromRole_AS_HeaderItem"
+					ToRole="ToRole_AS_HeaderItem"/></EntityType>
+			<EntityType Name="Items" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document Number"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Fiscal Year"/></EntityType>
+			<Association Name="AS_HeaderItem" sap:content-version="1"><End Type="ZGW_BTP_TRIAL_AN_SRV.Header" Multiplicity="1" Role="FromRole_AS_HeaderItem"/><End Type="ZGW_BTP_TRIAL_AN_SRV.Items" Multiplicity="*" Role="ToRole_AS_HeaderItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_HeaderItem"><PropertyRef Name="Gjahr"/><PropertyRef Name="Belnr"/><PropertyRef Name="Bukrs"/></Principal>
+					<Dependent Role="ToRole_AS_HeaderItem"><PropertyRef Name="Gjahr"/><PropertyRef Name="Belnr"/><PropertyRef Name="Bukrs"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZGW_BTP_TRIAL_AN_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="HeaderSet" EntityType="ZGW_BTP_TRIAL_AN_SRV.Header" sap:content-version="1"/><EntitySet Name="ItemsSet" EntityType="ZGW_BTP_TRIAL_AN_SRV.Items" sap:content-version="1"/>
+				<AssociationSet Name="AS_HeaderItemSet" Association="ZGW_BTP_TRIAL_AN_SRV.AS_HeaderItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HeaderSet" Role="FromRole_AS_HeaderItem"/><End EntitySet="ItemsSet" Role="ToRole_AS_HeaderItem"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGW_BTP_TRIAL_AN_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGW_BTP_TRIAL_AN_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

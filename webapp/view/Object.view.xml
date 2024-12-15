@@ -1,0 +1,98 @@
+<mvc:View controllerName="com.sg.Project_demo_app.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic">
+	<semantic:SemanticPage id="obpage" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+		<!-- <semantic:titleHeading>
+			<Title id="oTitle" text="Document Details" level="H2"/>
+		</semantic:titleHeading> -->
+		<semantic:headerContent>
+			<ObjectHeader id="obobn1" title="Document Number : {Belnr}" class="sapUiResponsivePadding--header">
+			<ObjectAttribute id="obatt1" title="Company Code" text="{Bukrs}" />
+			<ObjectAttribute id="obatt2" title="Fiscal Year" text="{Gjahr}" />
+			</ObjectHeader>
+		</semantic:headerContent>
+		<semantic:content>
+			<!--<Table id="table" width="auto" items="{ path: '/Item_DataSet', sorter: { path: 'Vbeln', descending: false } }"-->
+			<!--	noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"-->
+			<!--	updateFinished=".onUpdateFinished">-->
+			<Table id="obtable" width="auto" items="{Nav_HeaderItem}" noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+				<headerToolbar>
+					<OverflowToolbar id="obtoolbar">
+						<Title id="tableItem" text="{worklistView>/worklistTableTitle}" level="H3"/>
+						<ToolbarSpacer id="obtoolspa"/>
+						<SearchField id="obsearchField" tooltip="{i18n>worklistSearchTooltip}" search=".onSearch">
+							<layoutData>
+								<OverflowToolbarLayoutData id="oboftb" maxWidth="200px" priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="obBukrs">
+						<Text id="obBukrst" text="{i18n>Bukrs}"/>
+					</Column>
+					<Column id="obBelnr">
+						<Text id="obBelnrt" text="{i18n>Belnr}"/>
+					</Column>
+					<Column id="obGjahr">
+						<Text id="obGjahrt" text="{i18n>Gjahr}"/>
+					</Column>
+					<Column id="obBuzei">
+						<Text id="obBuzeit" text="{i18n>Buzei}"/>
+					</Column>
+					<Column id="obAugdt">
+						<Text id="obAugdtt" text="{i18n>Augdt}"/>
+					</Column>
+					<Column id="obAugbl">
+						<Text id="obAugblt" text="{i18n>Augbl}"/>
+					</Column>	
+					<Column id="obBschl">
+						<Text id="obBschlt" text="{i18n>Bschl}"/>
+					</Column>
+					<Column id="obShkzg">
+						<Text id="obShkzgt" text="{i18n>Shkzg}"/>
+					</Column>
+					<Column id="obMwskz">
+						<Text id="obMwskzt" text="{i18n>Mwskz}"/>
+					</Column>	
+					<Column id="obDmbtr">
+						<Text id="obDmbtrt" text="{i18n>Dmbtr}"/>
+					</Column>
+					<Column id="obHkont">
+						<Text id="obHkontt" text="{i18n>Hkont}"/>
+					</Column>
+					<Column id="obKunnr">
+						<Text id="obKunnrt" text="{i18n>Kunnr}"/>
+					</Column>
+					<Column id="obLifnr">
+						<Text id="obLifnrt" text="{i18n>Lifnr}"/>
+					</Column>																				
+				</columns>
+				<items>
+					<ColumnListItem id="obColumnlt">
+						<cells>
+							<!-- <ObjectIdentifier id="obbukrsv" title="{Bukrs}"/> -->
+							<Text id="obbukrsv" text="{Bukrs}"></Text>
+							<Text id="obbelnrv" text="{Belnr}"></Text>
+							<Text id="obgjahrv" text="{Gjahr}"></Text>
+							<Text id="obbuzeiv" text="{Buzei}"></Text>
+							<Text id="obaugdtv" text="{Augdt}"></Text>
+							<Text id="obaugblv" text="{Augbl}"></Text>
+							<Text id="obbschlv" text="{Bschl}"></Text>
+							<Text id="obshkzgv" text="{Shkzg}"></Text>
+							<Text id="obmwskzv" text="{Mwskz}"></Text>
+							<Text id="obdmbtrv" text="{Dmbtr}"></Text>
+							<Text id="obhkontv" text="{Hkont}"></Text>
+							<Text id="obkunnrv" text="{Kunnr}"></Text>
+							<Text id="oblifnrv" text="{Lifnr}"></Text>							
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+		<!-- <semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction> -->
+	</semantic:SemanticPage>
+</mvc:View>
